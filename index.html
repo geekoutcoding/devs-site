@@ -1,42 +1,74 @@
-// Create main UI container
-const ui = document.createElement("div");
-ui.style.position = "fixed";
-ui.style.top = "50%";
-ui.style.left = "50%";
-ui.style.transform = "translate(-50%, -50%)";
-ui.style.background = "#111";
-ui.style.color = "white";
-ui.style.padding = "25px";
-ui.style.borderRadius = "10px";
-ui.style.textAlign = "center";
-ui.style.fontFamily = "Arial";
-ui.style.boxShadow = "0 0 15px rgba(0,0,0,0.5)";
-ui.style.width = "300px";
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me - Dev</title>
+<style>
+body{
+    background-color:#052e1a;
+    color:#d4ffd4;
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+}
 
-// Title
-const title = document.createElement("h2");
-title.textContent = "DoBig Studio";
-title.style.marginBottom = "10px";
+.container{
+    max-width:800px;
+    margin:50px auto;
+    background:#0b3d2e;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
 
-// Description
-const desc = document.createElement("p");
-desc.textContent = "Welcome to DoBig! Create big things.";
+h1{
+    color:#7CFF9E;
+}
 
-// YouTube link
-const yt = document.createElement("a");
-yt.href = "https://www.youtube.com/@CatwebDobig";
-yt.textContent = "Try out our YouTube Channel";
-yt.target = "_blank";
-yt.style.display = "block";
-yt.style.marginTop = "15px";
-yt.style.color = "#ff4444";
-yt.style.textDecoration = "none";
-yt.style.fontWeight = "bold";
+h2{
+    color:#7CFF9E;
+    margin-top:25px;
+}
 
-// Append elements
-ui.appendChild(title);
-ui.appendChild(desc);
-ui.appendChild(yt);
+a{
+    color:#8CFFB0;
+    text-decoration:none;
+    display:block;
+    margin:6px 0;
+}
 
-// Add UI to page
-document.body.appendChild(ui);
+a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>About Me</h1>
+
+<p><strong>My Name:</strong> Dev</p>
+<p><strong>My Fav Color:</strong> Green</p>
+<p><strong>My Friends:</strong> Josh, Cola, Tonuxy and Icey etc..</p>
+
+<h2>My Best Catweb Projects</h2>
+<p>
+Tunisia4.rbx (on my last Roblox acc)<br>
+Artify.rbx<br>
+Z11.rbx<br>
+DoBig-Studio.rbx
+</p>
+
+<h2>Social Links</h2>
+
+<a href="https://www.roblox.com/users/9813099847/profile" target="_blank">My Roblox Profile</a>
+<a href="https://www.youtube.com/@CatwebDobig" target="_blank">My YouTube</a>
+<a href="https://discord.gg/Z9vZGamGb" target="_blank">My Discord Server</a>
+
+<p style="margin-top:20px;">There will be more links in the future.</p>
+
+</div>
+
+</body>
+</html>
