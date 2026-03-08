@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dev | Bio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  :root {
+    --bg: #050509;
+    --card-bg: #0b0b12;
+    --accent: #ff4b9f;
+    --accent-soft: rgba(255, 75, 159, 0.25);
+    --text-main: #ffffff;
+    --text-muted: #a0a0b5;
+    --border: #1b1b26;
+    --radius-lg: 18px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  }
+
+  body {
+    background: radial-gradient(circle at top, #181827 0%, #050509 60%);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 22px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .name {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .desc {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: 0.15s ease;
+  }
+
+  .btn:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-2px);
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .label-main {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .label-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .right {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="glow"></div>
+  <div class="inner">
+
+    <div class="name">Dev</div>
+    <div class="desc">If You Are a Roblox Game.. What game would you be?</div>
+
+    <div class="links">
+
+      <a class="btn" href="https://www.youtube.com/@CatwebDobig" target="_blank">
+        <div class="left">
+          <div class="icon">YT</div>
+          <div>
+            <div class="label-main">YouTube</div>
+            <div class="label-sub">@CatwebDobig</div>
+          </div>
+        </div>
+        <div class="right">OPEN</div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
