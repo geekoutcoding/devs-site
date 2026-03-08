@@ -1,74 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>About Me - Dev</title>
+<!DOCTYPE html><html><head><title>About Me - Dev</title>
 <style>
-body{
-    background-color:#052e1a;
-    color:#d4ffd4;
-    font-family:Arial, sans-serif;
-    margin:0;
-    padding:0;
-}
-
-.container{
-    max-width:800px;
-    margin:50px auto;
-    background:#0b3d2e;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.5);
-}
-
-h1{
-    color:#7CFF9E;
-}
-
-h2{
-    color:#7CFF9E;
-    margin-top:25px;
-}
-
-a{
-    color:#8CFFB0;
-    text-decoration:none;
-    display:block;
-    margin:6px 0;
-}
-
-a:hover{
-    text-decoration:underline;
-}
+body{background:#052e1a;color:#d4ffd4;font-family:Arial;margin:0;padding:10px;text-align:center}
+.a{display:flex;justify-content:center;gap:5px;flex-wrap:wrap}
+.av{width:60px;height:60px;border-radius:50%;border:2px solid #7cff9e;overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover}
+a{color:#8CFFB0;display:block;margin:2px 0;text-decoration:none}
+a:hover{color:#b0ffc2}
 </style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>About Me</h1>
-
-<p><strong>My Name:</strong> Dev</p>
-<p><strong>My Fav Color:</strong> Green</p>
-<p><strong>My Friends:</strong> Josh, Cola, Tonuxy and Icey etc..</p>
-
-<h2>My Best Catweb Projects</h2>
-<p>
-Tunisia4.rbx (on my last Roblox acc)<br>
-Artify.rbx<br>
-Z11.rbx<br>
-DoBig-Studio.rbx
-</p>
-
-<h2>Social Links</h2>
-
-<a href="https://www.roblox.com/users/9813099847/profile" target="_blank">My Roblox Profile</a>
-<a href="https://www.youtube.com/@CatwebDobig" target="_blank">My YouTube</a>
-<a href="https://discord.gg/Z9vZGamGb" target="_blank">My Discord Server</a>
-
-<p style="margin-top:20px;">There will be more links in the future.</p>
-
+</head><body>
+<h1>About Me - Dev</h1>
+<p>Name: Dev<br>Fav: Green<br>Friends: Josh,Cola,Tonuxy,Icey</p>
+<p>Projects:<br>Tunisia4.rbx<br>Artify.rbx<br>Z11.rbx<br>DoBig-Studio.rbx</p>
+<p>Links:</p>
+<a href="https://www.roblox.com/users/9813099847/profile" target="_blank">Roblox</a>
+<a href="https://www.youtube.com/@CatwebDobig" target="_blank">YouTube</a>
+<a href="https://discord.gg/Z9vZGamGb" target="_blank">Discord</a>
+<p>Avatars:</p>
+<div class="a">
+<div class="av"><img src="https://via.placeholder.com/60?text=Dev"></div>
+<div class="av"><img src="https://via.placeholder.com/60?text=Cola"></div>
+<div class="av"><img src="https://via.placeholder.com/60?text=Tonuxy"></div>
+<div class="av"><img src="https://via.placeholder.com/60?text=Josh"></div>
+<div class="av"><img src="https://via.placeholder.com/60?text=Icey"></div>
 </div>
-
-</body>
-</html>
+<audio id="m" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" loop autoplay controls></audio>
+<audio id="s" src="https://www.myinstants.com/media/sounds/button-3.mp3"></audio>
+<script>
+document.querySelectorAll(".av").forEach(a=>a.addEventListener("mouseenter",()=>{let h=document.getElementById("s");h.currentTime=0;h.play()}))
+</script>
+</body></html>
