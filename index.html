@@ -17,47 +17,32 @@ video{width:300px;margin:10px}
 
 <div id="videos"></div>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+let vids=[]
 
-/* YOUR FIREBASE CONFIG */
-const firebaseConfig = {
-apiKey: "YOUR_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT",
-storageBucket: "YOUR_PROJECT.appspot.com"
-};
-
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
-
-async function upload(){
+function upload(){
 let f=file.files[0]
-let r=ref(storage,"videos/"+f.name)
+let r=new FileReader()
 
-await uploadBytes(r,f)
-
-alert("Uploaded!")
-loadVideos()
+r.onload=function(){
+vids.push({t:title.value,v:r.result})
+show()
 }
 
-async function loadVideos(){
+r.readAsDataURL(f)
+}
+
+function show(){
 videos.innerHTML=""
-
-let list=await listAll(ref(storage,"videos"))
-
-for(let v of list.items){
-let url=await getDownloadURL(v)
-
+vids.forEach(v=>{
 videos.innerHTML+=
-<video src="${url}" controls></video>
-
+<div>
+<video src="${v.v}" controls></video>
+<p>${v.t}</p>
+</div>
+})
 }
-}
-
-loadVideos()
 
 </script>
 
