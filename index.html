@@ -1,47 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MiniTube</title>
+<!DOCTYPE html><html><head><title>MiniTube</title>
 <style>
-body{margin:0;font-family:Arial;background:#111;color:#fff}
-.top{background:#202020;padding:10px;display:flex}
-.top input{flex:1;padding:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:10px}
-.v{background:#222;padding:5px}
+body{font-family:Arial;background:#111;color:#fff;margin:0}
+.top{background:#222;padding:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,200px);gap:10px;padding:10px}
+.card{background:#333;padding:5px}
 video{width:100%}
-</style>
-</head>
-<body>
+</style></head><body>
 
 <div class="top">
-<b style="margin-right:10px">MiniTube</b>
-<input placeholder="Search videos">
+MiniTube
+<input id=u placeholder=Username>
+<button onclick="user=u.value">Set</button>
+<input id=t placeholder="Video title">
+<input type=file id=f>
+<button onclick=up()>Upload</button>
 </div>
 
-<div class="grid">
+<div id=v class=grid></div>
 
-<div class="v">
-<video controls>
-<source src="video1.mp4" type="video/mp4">
-</video>
-<p>My First Video</p>
-</div>
+<script>
+let user="",vid=JSON.parse(localStorage.v||"[]")
 
-<div class="v">
-<video controls>
-<source src="video2.mp4" type="video/mp4">
-</video>
-<p>Second Video</p>
-</div>
+function up(){
+let r=new FileReader()
+r.onload=()=>{
+vid.push({t:t.value,u:user,s:r.result,l:0})
+localStorage.v=JSON.stringify(vid)
+show()
+}
+r.readAsDataURL(f.files[0])
+}
 
-<div class="v">
-<video controls>
-<source src="video3.mp4" type="video/mp4">
-</video>
-<p>Third Video</p>
-</div>
+function like(i){
+vid[i].l++
+localStorage.v=JSON.stringify(vid)
+show()
+}
 
-</div>
+function show(){
+v.innerHTML=""
+vid.forEach((x,i)=>v.innerHTML+=
+<div class=card>
+<video src="${x.s}" controls></video>
+<p>${x.t} - ${x.u}</p>
+<button onclick=like(${i})>👍 ${x.l}</button>
+</div>)
+}
 
-</body>
-</html>
+show()
+</script>
+
+</body></html>
