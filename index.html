@@ -1,53 +1,65 @@
-<!DOCTYPE html><html><head><title>MiniTube</title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>MiniTube</title>
 <style>
-body{font-family:Arial;background:#111;color:#fff;margin:0}
-.top{background:#222;padding:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,200px);gap:10px;padding:10px}
-.card{background:#333;padding:5px}
-video{width:100%}
-</style></head><body>
+body{background:#111;color:#fff;font-family:Arial;text-align:center}
+video{width:300px;margin:10px}
+</style>
+</head>
+<body>
 
-<div class="top">
-MiniTube
-<input id=u placeholder=Username>
-<button onclick="user=u.value">Set</button>
-<input id=t placeholder="Video title">
-<input type=file id=f>
-<button onclick=up()>Upload</button>
-</div>
+<h2>MiniTube</h2>
 
-<div id=v class=grid></div>
+<input id="title" placeholder="Video title">
+<input type="file" id="file">
+<button onclick="upload()">Upload</button>
 
-<script>
-let user="",vid=JSON.parse(localStorage.v||"[]")
+<div id="videos"></div>
 
-function up(){
-let r=new FileReader()
-r.onload=()=>{
-vid.push({t:t.value,u:user,s:r.result,l:0})
-localStorage.v=JSON.stringify(vid)
-show()
-}
-r.readAsDataURL(f.files[0])
-}
+<script type="module">
 
-function like(i){
-vid[i].l++
-localStorage.v=JSON.stringify(vid)
-show()
-}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
-function show(){
-v.innerHTML=""
-vid.forEach((x,i)=>v.innerHTML+=
-<div class=card>
-<video src="${x.s}" controls></video>
-<p>${x.t} - ${x.u}</p>
-<button onclick=like(${i})>👍 ${x.l}</button>
-</div>)
+/* YOUR FIREBASE CONFIG */
+const firebaseConfig = {
+apiKey: "YOUR_KEY",
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+projectId: "YOUR_PROJECT",
+storageBucket: "YOUR_PROJECT.appspot.com"
+};
+
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+
+async function upload(){
+let f=file.files[0]
+let r=ref(storage,"videos/"+f.name)
+
+await uploadBytes(r,f)
+
+alert("Uploaded!")
+loadVideos()
 }
 
-show()
+async function loadVideos(){
+videos.innerHTML=""
+
+let list=await listAll(ref(storage,"videos"))
+
+for(let v of list.items){
+let url=await getDownloadURL(v)
+
+videos.innerHTML+=
+<video src="${url}" controls></video>
+
+}
+}
+
+loadVideos()
+
 </script>
 
-</body></html>
+</body>
+</html>
