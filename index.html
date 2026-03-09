@@ -1,31 +1,47 @@
-<!DOCTYPE html><html><head><title>About Me - Dev</title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>MiniTube</title>
 <style>
-body{background:#052e1a;color:#d4ffd4;font-family:Arial;margin:0;padding:10px;text-align:center}
-.a{display:flex;justify-content:center;gap:5px;flex-wrap:wrap}
-.av{width:60px;height:60px;border-radius:50%;border:2px solid #7cff9e;overflow:hidden}
-.av img{width:100%;height:100%;object-fit:cover}
-a{color:#8CFFB0;display:block;margin:2px 0;text-decoration:none}
-a:hover{color:#b0ffc2}
+body{margin:0;font-family:Arial;background:#111;color:#fff}
+.top{background:#202020;padding:10px;display:flex}
+.top input{flex:1;padding:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:10px}
+.v{background:#222;padding:5px}
+video{width:100%}
 </style>
-</head><body>
-<h1>About Me - Dev</h1>
-<p>Name: Dev<br>Fav: Green<br>Friends: Josh,Cola,Tonuxy,Icey</p>
-<p>Projects:<br>Tunisia4.rbx<br>Artify.rbx<br>Z11.rbx<br>DoBig-Studio.rbx</p>
-<p>Links:</p>
-<a href="https://www.roblox.com/users/9813099847/profile" target="_blank">Roblox</a>
-<a href="https://www.youtube.com/@CatwebDobig" target="_blank">YouTube</a>
-<a href="https://discord.gg/Z9vZGamGb" target="_blank">Discord</a>
-<p>Avatars:</p>
-<div class="a">
-<div class="av"><img src="https://via.placeholder.com/60?text=Dev"></div>
-<div class="av"><img src="https://via.placeholder.com/60?text=Cola"></div>
-<div class="av"><img src="https://via.placeholder.com/60?text=Tonuxy"></div>
-<div class="av"><img src="https://via.placeholder.com/60?text=Josh"></div>
-<div class="av"><img src="https://via.placeholder.com/60?text=Icey"></div>
+</head>
+<body>
+
+<div class="top">
+<b style="margin-right:10px">MiniTube</b>
+<input placeholder="Search videos">
 </div>
-<audio id="m" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" loop autoplay controls></audio>
-<audio id="s" src="https://www.myinstants.com/media/sounds/button-3.mp3"></audio>
-<script>
-document.querySelectorAll(".av").forEach(a=>a.addEventListener("mouseenter",()=>{let h=document.getElementById("s");h.currentTime=0;h.play()}))
-</script>
-</body></html>
+
+<div class="grid">
+
+<div class="v">
+<video controls>
+<source src="video1.mp4" type="video/mp4">
+</video>
+<p>My First Video</p>
+</div>
+
+<div class="v">
+<video controls>
+<source src="video2.mp4" type="video/mp4">
+</video>
+<p>Second Video</p>
+</div>
+
+<div class="v">
+<video controls>
+<source src="video3.mp4" type="video/mp4">
+</video>
+<p>Third Video</p>
+</div>
+
+</div>
+
+</body>
+</html>
